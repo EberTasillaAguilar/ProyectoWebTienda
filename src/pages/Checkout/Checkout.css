@@ -1,0 +1,136 @@
+.checkout-layout {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 3rem;
+    padding: 4rem 0;
+}
+
+.checkout-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.cart-list,
+.client-form,
+.checkout-sidebar {
+    padding: 2rem;
+    border-radius: 1.5rem;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.item-img-placeholder {
+    width: 50px;
+    height: 50px;
+    background: var(--surface);
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.item-name {
+    display: block;
+    font-weight: 600;
+}
+
+.item-qty {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.item-price {
+    margin-left: auto;
+    font-weight: 700;
+}
+
+.remove-btn {
+    background: transparent;
+    color: var(--error);
+    padding: 0.5rem;
+}
+
+.client-form .input-group {
+    margin-top: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.input-group input {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--glass-border);
+    padding: 1rem;
+    border-radius: 0.75rem;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.checkout-sidebar {
+    height: fit-content;
+    position: sticky;
+    top: 120px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+.total-row {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-top: 1.5rem;
+}
+
+.divider {
+    height: 1px;
+    background: var(--glass-border);
+    margin: 1.5rem 0;
+}
+
+.warning-text {
+    margin-top: 1.5rem;
+    color: var(--error);
+    font-size: 0.85rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.empty-cart-container {
+    text-align: center;
+    padding: 10rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+@media (max-width: 968px) {
+    .checkout-layout {
+        grid-template-columns: 1fr;
+    }
+}
