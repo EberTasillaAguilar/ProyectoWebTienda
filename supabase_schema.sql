@@ -23,36 +23,27 @@ CREATE TABLE products (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now())
 );
 
--- 3. Tabla de Ventas (Sales)
+-- 3. Tabla de Ventas (Sales) con información de envío
 CREATE TABLE sales (
-  id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  id PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   total DECIMAL(10, 2) NOT NULL,
   status TEXT DEFAULT 'pending', -- 'pending', 'completed', 'canceled'
   paypal_order_id TEXT,
   client_email TEXT,
   client_name TEXT,
+  client_address TEXT,
+  client_phone TEXT,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now())
 );
 
 -- 4. Tabla de items de la venta (Sale Items)
 CREATE TABLE sale_items (
-  id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  id PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   sale_id BIGINT REFERENCES sales(id) ON DELETE CASCADE,
   product_id BIGINT REFERENCES products(id),
   quantity INT NOT NULL,
   subtotal DECIMAL(10, 2) NOT NULL
 );
 
--- ################################################
--- DATOS DE PRUEBA (OPCIONAL)
--- ################################################
 
-INSERT INTO categories (name, slug, description) VALUES
-('Ropa de Invierno', 'invierno', 'Colección de abrigos y bufandas'),
-('Ropa de Verano', 'verano', 'Prendas ligeras y frescas'),
-('Urbano', 'urbano', 'Moda de calle moderna');
-
-INSERT INTO products (name, description, price, stock, category_id, slug) VALUES
-('Abrigo de Lana Premium', 'Abrigo elegante 100% lana', 250.00, 10, 1, 'abrigo-lana'),
-('Camiseta Oversize Vortex', 'Algodón pesado 250gsm', 45.00, 50, 3, 'camiseta-vortex'),
-('Pantalón Lino Celeste', 'Perfecto para la playa', 60.00, 20, 2, 'pantalon-lino');
+-- Fin del esquema. No incluya datos de prueba aquí para evitar conflictos con la base de datos real.

@@ -12,12 +12,41 @@ const initialOptions = {
 };
 
 import { CartProvider } from './context/CartContext'
+import { Toaster } from 'react-hot-toast'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <PayPalScriptProvider options={initialOptions}>
       <CartProvider>
         <BrowserRouter>
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              duration: 3000,
+              style: {
+                background: '#fff',
+                color: '#1e293b',
+                boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)',
+                border: '1px solid #e2e8f0',
+                borderRadius: '12px',
+                padding: '16px',
+                fontSize: '14px',
+                fontWeight: '500',
+              },
+              success: {
+                iconTheme: {
+                  primary: '#10b981',
+                  secondary: '#fff',
+                },
+              },
+              error: {
+                iconTheme: {
+                  primary: '#ef4444',
+                  secondary: '#fff',
+                },
+              },
+            }}
+          />
           <App />
         </BrowserRouter>
       </CartProvider>

@@ -1,6 +1,7 @@
 import { PayPalButtons } from "@paypal/react-paypal-js";
 import { supabase } from "../../services/supabase";
 import { useCart } from "../../context/CartContext";
+import toast from 'react-hot-toast';
 
 const PayPalButton = ({ amount, clientInfo }) => {
     const { cart, clearCart } = useCart();
@@ -29,12 +30,15 @@ const PayPalButton = ({ amount, clientInfo }) => {
                         paypal_order_id: details.id,
                         client_email: clientInfo.email,
                         client_name: clientInfo.name,
+                        client_address: clientInfo.address, // Asegúrate de tener esta columna en Supabase
+                        client_phone: clientInfo.phone,     // Asegúrate de tener esta columna en Supabase
                     },
                 ])
                 .select();
 
             if (saleError) {
                 console.error("Error saving sale:", saleError);
+                toast.error("Hubo un error al registrar la venta, pero el pago se procesó.");
                 return;
             }
 
@@ -53,7 +57,15 @@ const PayPalButton = ({ amount, clientInfo }) => {
             if (itemsError) {
                 console.error("Error saving sale items:", itemsError);
             } else {
-                alert(`Transaction completed by ${details.payer.name.given_name}`);
+                toast.success('¡Pago Realizado con Éxito!', {
+                    icon: '✅',
+                    duration: 5000,
+                    style: {
+                        background: '#10b981',
+                        color: '#fff',
+                        fontWeight: 'bold'
+                    }
+                });
                 clearCart();
             }
         });
