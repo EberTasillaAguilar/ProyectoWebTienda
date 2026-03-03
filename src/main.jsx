@@ -20,9 +20,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <CartProvider>
         <BrowserRouter>
           <Toaster
-            position="top-right"
+            position="bottom-right"
             toastOptions={{
-              duration: 3000,
+            duration: 3000,
               style: {
                 background: '#fff',
                 color: '#1e293b',
@@ -32,19 +32,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 padding: '16px',
                 fontSize: '14px',
                 fontWeight: '500',
-              },
-              success: {
-                iconTheme: {
-                  primary: '#10b981',
-                  secondary: '#fff',
-                },
-              },
-              error: {
-                iconTheme: {
-                  primary: '#ef4444',
-                  secondary: '#fff',
-                },
-              },
+              }
             }}
           />
           <App />
