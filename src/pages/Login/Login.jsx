@@ -36,7 +36,7 @@ const Login = () => {
                 } else {
                     localStorage.setItem('currentUser', JSON.stringify({ email, name: email.split('@')[0] }));
                 }
-                toast.success('Bienvenido a Boutique Boutique', { icon: '👋' });
+                toast.success('Bienvenido a moda cajamarca', { icon: '👋' });
                 navigate('/profile');
             }
         }

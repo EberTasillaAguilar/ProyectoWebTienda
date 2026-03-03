@@ -17,8 +17,16 @@ function App() {
           <Route path="/profile" element={<Profile />} />
         </Routes>
       </main>
-      <footer style={{ textAlign: 'center', padding: '4rem 2rem', color: 'var(--text-muted)', borderTop: '1px solid var(--border)', marginTop: '4rem' }}>
-        Boutique Boutique © {new Date().getFullYear()} - Proyecto Académico
+      <footer style={{
+          textAlign: 'center',
+          padding: '3rem 2rem',
+          color: 'var(--text-muted)',
+          borderTop: '1px solid var(--border)',
+          marginTop: '4rem',
+          fontSize: '14px'
+        }}>
+          <strong>Moda Cajamarca</strong> © {new Date().getFullYear()} <br />
+         Hecho con ❤️ en Cajamarca
       </footer>
     </div>
   );
