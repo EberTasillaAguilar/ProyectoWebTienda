@@ -25,7 +25,7 @@ function App() {
           marginTop: '4rem',
           fontSize: '14px'
         }}>
-          <strong>Moda Cajamarca</strong> © {new Date().getFullYear()} <br />
+          <strong>Vilvic Cajamarca</strong> © {new Date().getFullYear()} <br />
          Hecho con ❤️ en Cajamarca
       </footer>
     </div>

@@ -12,7 +12,7 @@ const Navbar = () => {
         <nav className="navbar-container">
             <div className="container nav-content">
                 <Link to="/" className="nav-logo">
-                    Moda <span className="logo-accent">Cajamarca</span>
+                    Vilvic <span className="logo-accent">Baby</span>
                 </Link>
                 <div className="nav-links">
                     <Link to="/">Colección</Link>
